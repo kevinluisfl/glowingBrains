@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ejemplo.tiendaalamano.model.Usuario;
+import com.ejemplo.tiendaalamano.model.Usuarios;
 import com.ejemplo.tiendaalamano.repository.UsuarioRepository;
 
 @Service
@@ -17,19 +17,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Usuario> findAll() {
+	public List<Usuarios> findAll() {
 		return UsuarioRepository.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Usuario> findById(Long id) {
+	public Optional<Usuarios> findById(Long id) {
 		return UsuarioRepository.findById(id);
 	}
 
 	@Override
 	@Transactional
-	public Usuario save(Usuario Usuario) {
+	public Usuarios save(Usuarios Usuario) {
 		return UsuarioRepository.save(Usuario);
 	}
 
@@ -40,8 +40,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	@Override
-	public List<Usuario> login(String username, String password) {
-		List<Usuario> Usuarios = UsuarioRepository.login(username, password);
+	public List<Usuarios> login(String username, String password) {
+		List<Usuarios> Usuarios = UsuarioRepository.login(username, password);
 		return Usuarios;
 	}
 
