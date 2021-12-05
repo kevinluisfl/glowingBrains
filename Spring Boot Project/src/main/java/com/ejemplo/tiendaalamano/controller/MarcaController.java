@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,9 +37,9 @@ public class MarcaController {
         return marcaService.findAll();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody Marcas marcaDetalle, Long id){
+	public ResponseEntity<?> update(@RequestBody Marcas marcaDetalle,@PathVariable Long id){
 		Optional<Marcas> marca = marcaService.findById(id);
 		if(!marca.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -50,13 +51,13 @@ public class MarcaController {
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteMarcaById(@RequestParam Long id) {
+    public void deleteMarcaById(@PathVariable Long id) {
     	marcaService.deleteById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Marcas> getMarcaById(Long id) {
+    public Optional<Marcas> getMarcaById(@PathVariable Long id) {
         return marcaService.findById(id);
     }
 }

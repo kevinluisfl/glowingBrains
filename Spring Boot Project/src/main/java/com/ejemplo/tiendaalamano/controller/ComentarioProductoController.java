@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,9 +37,9 @@ public class ComentarioProductoController {
         return comentarioproductoService.findAll();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody Comentarios_producto comentarioproductoDetalle, Long id){
+	public ResponseEntity<?> update(@RequestBody Comentarios_producto comentarioproductoDetalle, @PathVariable Long id){
 		Optional<Comentarios_producto> comentarioproducto = comentarioproductoService.findById(id);
 		if(!comentarioproducto.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -50,13 +51,13 @@ public class ComentarioProductoController {
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteProductoById(@RequestParam Long id) {
+    public void deleteProductoById( @PathVariable Long id) {
     	comentarioproductoService.deleteById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Comentarios_producto> getProductoById(Long id) {
+    public Optional<Comentarios_producto> getProductoById( @PathVariable Long id) {
         return comentarioproductoService.findById(id);
     }
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,9 +37,9 @@ public class HistorialCreditoController {
         return historialcreditoService.findAll();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody historial_creditos historialcreditoDetalle, Long id){
+	public ResponseEntity<?> update(@RequestBody historial_creditos historialcreditoDetalle,@PathVariable Long id){
 		Optional<historial_creditos> historialcredito = historialcreditoService.findById(id);
 		if(!historialcredito.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -50,13 +51,13 @@ public class HistorialCreditoController {
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteHistorialCreditoById(@RequestParam Long id) {
+    public void deleteHistorialCreditoById(@PathVariable Long id) {
     	historialcreditoService.deleteById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<historial_creditos> getHistorialcreditoById(Long id) {
+    public Optional<historial_creditos> getHistorialcreditoById(@PathVariable Long id) {
         return historialcreditoService.findById(id);
     }
 }

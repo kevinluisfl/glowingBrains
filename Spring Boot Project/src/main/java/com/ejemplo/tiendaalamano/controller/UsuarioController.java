@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,9 +38,9 @@ public class UsuarioController {
         return usuServicio.findAll();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody Usuarios usuarioDetalle, Long id){
+	public ResponseEntity<?> update(@RequestBody Usuarios usuarioDetalle,@PathVariable Long id){
 		Optional<Usuarios> usuario = usuServicio.findById(id);
 		if(!usuario.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -51,13 +52,13 @@ public class UsuarioController {
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteUsuarioById(@RequestParam Long id) {
+    public void deleteUsuarioById(@PathVariable Long id) {
     	usuServicio.deleteById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Usuarios> getUsuarioById(Long id) {
+    public Optional<Usuarios> getUsuarioById(@PathVariable Long id) {
         return usuServicio.findById(id);
     }
 }

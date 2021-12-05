@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,9 +37,9 @@ public class ProductoController {
         return productoService.findAll();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody Productos productoDetalle, Long id){
+	public ResponseEntity<?> update(@RequestBody Productos productoDetalle,@PathVariable Long id){
 		Optional<Productos> producto = productoService.findById(id);
 		if(!producto.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -50,13 +51,13 @@ public class ProductoController {
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteProductoById(@RequestParam Long id) {
+    public void deleteProductoById(@PathVariable Long id) {
     	productoService.deleteById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Productos> getProductoById(Long id) {
+    public Optional<Productos> getProductoById(@PathVariable Long id) {
         return productoService.findById(id);
     }
 }

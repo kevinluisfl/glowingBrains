@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,9 +37,9 @@ public class SubcategoriaController {
         return subcategoriaService.findAll();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody Subcategorias subcategoriaDetalle, Long id){
+	public ResponseEntity<?> update(@RequestBody Subcategorias subcategoriaDetalle,@PathVariable Long id){
 		Optional<Subcategorias> subcategoria = subcategoriaService.findById(id);
 		if(!subcategoria.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -50,13 +51,13 @@ public class SubcategoriaController {
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteSubcategoriaById(@RequestParam Long id) {
+    public void deleteSubcategoriaById(@PathVariable Long id) {
     	subcategoriaService.deleteById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Subcategorias> getSubcategoriaById(Long id) {
+    public Optional<Subcategorias> getSubcategoriaById(@PathVariable Long id) {
         return subcategoriaService.findById(id);
     }
 }

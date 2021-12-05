@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,9 +37,9 @@ public class CreditoController {
         return creditoService.findAll();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody Creditos creditoDetalle, Long id){
+	public ResponseEntity<?> update(@RequestBody Creditos creditoDetalle,@PathVariable Long id){
 		Optional<Creditos> credito = creditoService.findById(id);
 		if(!credito.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -50,13 +51,13 @@ public class CreditoController {
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public void deleteCreditoById(@RequestParam Long id) {
+    public void deleteCreditoById(@PathVariable Long id) {
     	creditoService.deleteById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Creditos> getCreditoById(Long id) {
+    public Optional<Creditos> getCreditoById(@PathVariable Long id) {
         return creditoService.findById(id);
     }
 }
