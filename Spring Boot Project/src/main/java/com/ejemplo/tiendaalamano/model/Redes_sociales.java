@@ -1,15 +1,24 @@
 package com.ejemplo.tiendaalamano.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="redes_sociales")
-public class Redes_sociales {
+public class Redes_sociales  implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_red_social;
@@ -31,6 +40,78 @@ public class Redes_sociales {
 	
 	@Column(length = 30, nullable=false)
 	private String nombre_administrador;
+	
+	@JsonIgnoreProperties(value={"Redes_sociales", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@ManyToOne  (fetch = FetchType.LAZY) 
+	private Puntos_ventas puntos_venta;
+
+	public int getId_red_social() {
+		return id_red_social;
+	}
+
+	public void setId_red_social(int id_red_social) {
+		this.id_red_social = id_red_social;
+	}
+
+	public int getId_puntodeventa() {
+		return id_puntodeventa;
+	}
+
+	public void setId_puntodeventa(int id_puntodeventa) {
+		this.id_puntodeventa = id_puntodeventa;
+	}
+
+	public String getCuenta_red_social() {
+		return cuenta_red_social;
+	}
+
+	public void setCuenta_red_social(String cuenta_red_social) {
+		this.cuenta_red_social = cuenta_red_social;
+	}
+
+	public String getRed_social() {
+		return red_social;
+	}
+
+	public void setRed_social(String red_social) {
+		this.red_social = red_social;
+	}
+
+	public String getUrl_red_social() {
+		return url_red_social;
+	}
+
+	public void setUrl_red_social(String url_red_social) {
+		this.url_red_social = url_red_social;
+	}
+
+	public String getClave_red_social() {
+		return clave_red_social;
+	}
+
+	public void setClave_red_social(String clave_red_social) {
+		this.clave_red_social = clave_red_social;
+	}
+
+	public String getNombre_administrador() {
+		return nombre_administrador;
+	}
+
+	public void setNombre_administrador(String nombre_administrador) {
+		this.nombre_administrador = nombre_administrador;
+	}
+
+	public Puntos_ventas getPuntos_venta() {
+		return puntos_venta;
+	}
+
+	public void setPuntos_venta(Puntos_ventas puntos_venta) {
+		this.puntos_venta = puntos_venta;
+	}
+	
+	
+	
+
 
 	
 	
