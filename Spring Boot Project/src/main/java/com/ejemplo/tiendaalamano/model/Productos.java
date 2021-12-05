@@ -65,7 +65,7 @@ public class Productos implements Serializable {
     private List<Promociones> promociones;
 	
 	@JsonIgnoreProperties(value = {"productos", "hibernateLazyInitializer", "handler"}, allowSetters = true)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "productoss", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "productos", cascade = CascadeType.ALL)
     private List<Detalle_pedidos> detalle_pedidos;
 	
 	@JsonIgnoreProperties(value = {"productos", "hibernateLazyInitializer", "handler"}, allowSetters = true)

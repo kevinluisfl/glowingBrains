@@ -14,7 +14,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="detalle_pedidos_")
+@Table(name="detalle_pedidos")
 public class Detalle_pedidos implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -45,11 +45,11 @@ public class Detalle_pedidos implements Serializable {
 	@Column(length = 50, nullable=false)
 	private float subtotal_producto;
 	
-	@JsonIgnoreProperties(value={"detalles_pedidos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@JsonIgnoreProperties(value={"detalle_pedidos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
-	private Productos producto;
+	private Productos productos;
 	
-	@JsonIgnoreProperties(value={"detalles_pedidos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@JsonIgnoreProperties(value={"detalle_pedidos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Pedidos pedidos;
 
@@ -125,12 +125,14 @@ public class Detalle_pedidos implements Serializable {
 		this.subtotal_producto = subtotal_producto;
 	}
 
-	public Productos getProducto() {
-		return producto;
+
+
+	public Productos getProductos() {
+		return productos;
 	}
 
-	public void setProducto(Productos producto) {
-		this.producto = producto;
+	public void setProductos(Productos productos) {
+		this.productos = productos;
 	}
 
 	public Pedidos getPedidos() {

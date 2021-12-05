@@ -39,10 +39,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 		usuarioRepository.deleteById(id);
 	}
 
-	@Override
-	public List<Usuarios> login(String username, String password) {
-		List<Usuarios> Usuarios = usuarioRepository.login(username, password);
-		return Usuarios;
-	}
+//	@Override
+//	public List<Usuarios> login(String username, String password) {
+//		List<Usuarios> Usuarios = usuarioRepository.login(username, password);
+//		return Usuarios;
+//	}
 
 }

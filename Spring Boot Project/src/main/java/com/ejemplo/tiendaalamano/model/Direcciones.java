@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="direccion")
+@Table(name="direcciones")
 public class Direcciones implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -36,14 +36,14 @@ public class Direcciones implements Serializable {
 
 	@JsonIgnoreProperties(value={"direcciones", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
-	private Usuarios usuario;
+	private Usuarios usuarios;
 	
 	@JsonIgnoreProperties(value={"direcciones", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
-	private Ciudades ciudad;
+	private Ciudades ciudades;
 	
 	@JsonIgnoreProperties(value={"direcciones", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL) 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "direcciones", cascade = CascadeType.ALL) 
 	private List<Pedidos> pedidos;
 
 	public int getId_direccion() {
@@ -78,20 +78,22 @@ public class Direcciones implements Serializable {
 		this.ciudad_id = ciudad_id;
 	}
 
-	public Usuarios getUsuario() {
-		return usuario;
+	
+
+	public Usuarios getUsuarios() {
+		return usuarios;
 	}
 
-	public void setUsuario(Usuarios usuario) {
-		this.usuario = usuario;
+	public void setUsuarios(Usuarios usuarios) {
+		this.usuarios = usuarios;
 	}
 
-	public Ciudades getCiudad() {
-		return ciudad;
+	public Ciudades getCiudades() {
+		return ciudades;
 	}
 
-	public void setCiudad(Ciudades ciudad) {
-		this.ciudad = ciudad;
+	public void setCiudades(Ciudades ciudades) {
+		this.ciudades = ciudades;
 	}
 
 	public List<Pedidos> getPedidos() {

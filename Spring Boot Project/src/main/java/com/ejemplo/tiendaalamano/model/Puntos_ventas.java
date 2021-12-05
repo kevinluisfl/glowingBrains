@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name="puntos_venta")
+@Table(name="puntos_ventas")
 public class Puntos_ventas implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -41,16 +41,16 @@ public class Puntos_ventas implements Serializable {
 	@Column(length = 15, nullable=false)
 	private int ciudad_id;
 
-	@JsonIgnoreProperties(value={"puntos_venta", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@JsonIgnoreProperties(value={"puntos_ventas", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Ciudades ciudades;
 	
-	@JsonIgnoreProperties(value = {"puntos_venta", "hibernateLazyInitializer", "handler"}, allowSetters = true)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "puntos_venta", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties(value = {"puntos_ventas", "hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "puntos_ventas", cascade = CascadeType.ALL)
     private List<Redes_sociales> redes_sociales;
 	
-	@JsonIgnoreProperties(value = {"puntos_venta", "hibernateLazyInitializer", "handler"}, allowSetters = true)
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "puntos_venta", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties(value = {"puntos_ventas", "hibernateLazyInitializer", "handler"}, allowSetters = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "puntos_ventas", cascade = CascadeType.ALL)
     private List<Pedidos> pedidos;
 
 	public int getId_puntos_ventao() {

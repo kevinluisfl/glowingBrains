@@ -38,7 +38,7 @@ public class Subcategorias implements Serializable{
 	
 	@JsonIgnoreProperties(value={"subcategorias", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
-	private Categorias categoria;
+	private Categorias categorias;
 	
 	
 	public List<Productos> getProductos() {
@@ -49,15 +49,14 @@ public class Subcategorias implements Serializable{
 		this.productos = productos;
 	}
 
-	public Categorias getCategoria() {
-		return categoria;
+
+	public Categorias getCategorias() {
+		return categorias;
 	}
 
-	public void setCategoria(Categorias categoria) {
-		this.categoria = categoria;
+	public void setCategorias(Categorias categorias) {
+		this.categorias = categorias;
 	}
-
-	
 
 	public Long getId_subcategoria() {
 		return id_subcategoria;

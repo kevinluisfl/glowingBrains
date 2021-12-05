@@ -41,7 +41,7 @@ public class Redes_sociales  implements Serializable{
 	@Column(length = 30, nullable=false)
 	private String nombre_administrador;
 	
-	@JsonIgnoreProperties(value={"Redes_sociales", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@JsonIgnoreProperties(value={"redes_sociales", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne  (fetch = FetchType.LAZY) 
 	private Puntos_ventas puntos_ventas;
 

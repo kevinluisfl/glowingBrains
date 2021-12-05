@@ -38,9 +38,9 @@ public class Comentarios_producto implements Serializable {
 	
 	@JsonIgnoreProperties(value={"Comentarios_producto", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
-	private Usuarios usuario;
+	private Usuarios usuarios;
 	
-	@JsonIgnoreProperties(value={"comentarios_productos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@JsonIgnoreProperties(value={"comentarios_producto", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Productos productos;
 
@@ -84,12 +84,14 @@ public class Comentarios_producto implements Serializable {
 		this.comentario_producto = comentario_producto;
 	}
 
-	public Usuarios getUsuario() {
-		return usuario;
+
+
+	public Usuarios getUsuarios() {
+		return usuarios;
 	}
 
-	public void setUsuario(Usuarios usuario) {
-		this.usuario = usuario;
+	public void setUsuarios(Usuarios usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	public Productos getProductos() {

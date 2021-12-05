@@ -71,7 +71,7 @@ public class Creditos implements Serializable {
 
 	@JsonIgnoreProperties(value={"creditos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
-	private Usuarios usuario;
+	private Usuarios usuarios;
 	
 	@JsonIgnoreProperties(value={"creditos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "creditos", cascade = CascadeType.ALL) 
@@ -181,12 +181,14 @@ public class Creditos implements Serializable {
 		this.interes_mora = interes_mora;
 	}
 
-	public Usuarios getUsuario() {
-		return usuario;
+
+
+	public Usuarios getUsuarios() {
+		return usuarios;
 	}
 
-	public void setUsuario(Usuarios usuario) {
-		this.usuario = usuario;
+	public void setUsuarios(Usuarios usuarios) {
+		this.usuarios = usuarios;
 	}
 
 	public List<Historial_credito> getHistorial_credito() {

@@ -39,12 +39,12 @@ public class Ciudades implements Serializable {
 	private Departamentos departamentos;
 	
 	@JsonIgnoreProperties(value={"ciudades", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL) 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudades", cascade = CascadeType.ALL) 
 	private List<Direcciones> direcciones;
 	
 	@JsonIgnoreProperties(value={"ciudades", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudades", cascade = CascadeType.ALL) 
-	private List<Puntos_ventas> puntos_venta;
+	private List<Puntos_ventas> puntos_ventas;
 
 	public Long getId_ciudad() {
 		return id_ciudad;
@@ -86,13 +86,15 @@ public class Ciudades implements Serializable {
 		this.direcciones = direcciones;
 	}
 
-	public List<Puntos_ventas> getPuntos_venta() {
-		return puntos_venta;
+	public List<Puntos_ventas> getPuntos_ventas() {
+		return puntos_ventas;
 	}
 
-	public void setPuntos_venta(List<Puntos_ventas> puntos_venta) {
-		this.puntos_venta = puntos_venta;
+	public void setPuntos_ventas(List<Puntos_ventas> puntos_ventas) {
+		this.puntos_ventas = puntos_ventas;
 	}
+
+
 
 	
 

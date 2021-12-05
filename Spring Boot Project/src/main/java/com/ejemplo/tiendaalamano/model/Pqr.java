@@ -30,14 +30,18 @@ public class Pqr implements Serializable {
 	private String comentario_pqr;
 	
 	@Column(length = 15, nullable=false)
-	private String Tipo_pqr;
+	private String tipo_pqr;
 	
 	@Column(length = 15, nullable=false)
 	private int pedido_id;
 	
 	@JsonIgnoreProperties(value={"pqr", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
-	private Usuarios usuario;
+	private Usuarios usuarios;
+	
+	@JsonIgnoreProperties(value={"pqr", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@ManyToOne(fetch = FetchType.LAZY) 
+	private Pedidos pedidos;
 
 	public int getId_historio_pqr() {
 		return id_historio_pqr;
@@ -63,12 +67,14 @@ public class Pqr implements Serializable {
 		this.comentario_pqr = comentario_pqr;
 	}
 
+
+
 	public String getTipo_pqr() {
-		return Tipo_pqr;
+		return tipo_pqr;
 	}
 
 	public void setTipo_pqr(String tipo_pqr) {
-		Tipo_pqr = tipo_pqr;
+		this.tipo_pqr = tipo_pqr;
 	}
 
 	public int getPedido_id() {
@@ -79,13 +85,15 @@ public class Pqr implements Serializable {
 		this.pedido_id = pedido_id;
 	}
 
-	public Usuarios getUsuario() {
-		return usuario;
+	public Usuarios getUsuarios() {
+		return usuarios;
 	}
 
-	public void setUsuario(Usuarios usuario) {
-		this.usuario = usuario;
+	public void setUsuarios(Usuarios usuarios) {
+		this.usuarios = usuarios;
 	}
+
+
 	
 	
 

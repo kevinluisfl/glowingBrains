@@ -33,7 +33,7 @@ public class Historial_credito implements Serializable {
 	@Column(length = 15, nullable=false)
 	private int fecha_pago_credito ;
 
-	@JsonIgnoreProperties(value={"historial_creditos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@JsonIgnoreProperties(value={"historial_credito", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Creditos creditos;
 

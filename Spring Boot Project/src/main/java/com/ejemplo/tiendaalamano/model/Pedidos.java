@@ -106,6 +106,10 @@ public class Pedidos implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Direcciones direcciones;
 	
+	@JsonIgnoreProperties(value={"pedidos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@ManyToOne(fetch = FetchType.LAZY) 
+	private Puntos_ventas puntos_ventas;
+	
 	@JsonIgnoreProperties(value = {"pedidos", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidos", cascade = CascadeType.ALL)
     private List<Detalle_pedidos> detalle_pedidos;
@@ -322,12 +326,14 @@ public class Pedidos implements Serializable {
 		this.pqr = pqr;
 	}
 
-	
-	
-	
-	
+	public Puntos_ventas getPuntos_ventas() {
+		return puntos_ventas;
+	}
+
+	public void setPuntos_ventas(Puntos_ventas puntos_ventas) {
+		this.puntos_ventas = puntos_ventas;
+	}
 
 	
-	
-	
+
 }
