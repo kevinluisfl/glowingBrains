@@ -28,6 +28,10 @@ public class CiudadesService {
 		return ciudadesRepository.save(ciudad);
 	}
 	
+	public Ciudades actualizarCiudad(Ciudades ciudad) {
+		return ciudadesRepository.save(ciudad);
+	}
+	
 	public boolean eleminarPedido(Long id) {
 		if (ciudadesRepository.existsById(id)) {
 			ciudadesRepository.deleteById(id);

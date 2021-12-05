@@ -9,18 +9,20 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ejemplo.tiendaalamano.model.Pqr;
 import com.ejemplo.tiendaalamano.model.Promociones;
 
 import com.ejemplo.tiendaalamano.service.PromocionesService;
 
 
 @RestController
-@CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
+@CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
 @RequestMapping("/api/promociones")
 public class PromocionesController {
 	
@@ -35,6 +37,12 @@ public class PromocionesController {
 	@GetMapping(path="/{id}")
 	public Optional<Promociones> obtenerPedidosId(@PathVariable("id") Long id){
 		return promocionesService.obtenerPedidosId(id);
+	}
+	
+	@PutMapping(path="/{id}")
+	public Promociones actualizarCiudad(@RequestBody Promociones promocion, @PathVariable("id") Long id) {
+		promocion.setId_promocion(id);
+		return promocionesService.guardarPedido(promocion);
 	}
 	
 	@PostMapping

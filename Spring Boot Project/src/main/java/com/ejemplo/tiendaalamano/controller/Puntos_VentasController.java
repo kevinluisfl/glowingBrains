@@ -9,18 +9,19 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.ejemplo.tiendaalamano.model.Promociones;
 import com.ejemplo.tiendaalamano.model.Puntos_ventas;
 import com.ejemplo.tiendaalamano.service.Puntos_VentasService;
 
 
 @RestController
-@CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
+@CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
 @RequestMapping("/api/puntos_ventas")
 public class Puntos_VentasController {
 	
@@ -35,6 +36,12 @@ public class Puntos_VentasController {
 	@GetMapping(path="/{id}")
 	public Optional<Puntos_ventas> obtenerPedidosId(@PathVariable("id") Long id){
 		return puntos_VentasService.obtenerPedidosId(id);
+	}
+	
+	@PutMapping(path="/{id}")
+	public Puntos_ventas actualizarCiudad(@RequestBody Puntos_ventas punto_ventas, @PathVariable("id") Long id) {
+		punto_ventas.setId_puntoventa(id);
+		return puntos_VentasService.guardarPedido(punto_ventas);
 	}
 	
 	@PostMapping

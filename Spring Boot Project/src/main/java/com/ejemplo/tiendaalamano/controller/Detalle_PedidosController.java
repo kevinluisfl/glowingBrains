@@ -9,19 +9,20 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.ejemplo.tiendaalamano.model.Departamentos;
 import com.ejemplo.tiendaalamano.model.Detalle_pedidos;
 
 import com.ejemplo.tiendaalamano.service.Detalle_PedidosService;
 
 
 @RestController
-@CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
+@CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE, RequestMethod.PUT})
 @RequestMapping("/api/detalle_pedidos")
 public class Detalle_PedidosController {
 	
@@ -37,7 +38,12 @@ public class Detalle_PedidosController {
 	public Optional<Detalle_pedidos> obtenerPedidosId(@PathVariable("id") Long id){
 		return detalle_PedidosService.obtenerPedidosId(id);
 	}
-
+	
+	@PutMapping(path="/{id}")
+	public Detalle_pedidos actualizarCiudad(@RequestBody Detalle_pedidos detalle_Pedido, @PathVariable("id") Long id) {
+		detalle_Pedido.setId_detalle_pedido(id);
+		return detalle_PedidosService.guardarPedido(detalle_Pedido);
+	}
 	
 	@PostMapping
 	public Detalle_pedidos guaradarPedido(@RequestBody Detalle_pedidos detalle_Pedido) {
