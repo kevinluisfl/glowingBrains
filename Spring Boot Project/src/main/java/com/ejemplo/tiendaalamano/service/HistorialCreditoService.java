@@ -3,12 +3,12 @@ package com.ejemplo.tiendaalamano.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.ejemplo.tiendaalamano.model.Historial_credito;
+import com.ejemplo.tiendaalamano.model.historial_creditos;
 
 public interface HistorialCreditoService {
-	public List<Historial_credito> findAll();
-	public Optional<Historial_credito> findById(Long id);
-	public Historial_credito save(Historial_credito historialcredito);
+	public List<historial_creditos> findAll();
+	public Optional<historial_creditos> findById(Long id);
+	public historial_creditos save(historial_creditos historialcredito);
 	public void deleteById(Long id);
 	
 }

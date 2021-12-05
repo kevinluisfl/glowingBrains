@@ -17,7 +17,6 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
-
 @Entity
 @Table(name="productos")
 public class Productos implements Serializable {
@@ -32,10 +31,10 @@ public class Productos implements Serializable {
 	private String nombre_producto;
 	
 	@Column(length = 15, nullable=false)
-	private String marca_id;
+	private int marca_id;
 	
 	@Column(length = 15, nullable=false)
-	private String existencias;
+	private int existencia;
 	
 	@Column(length = 15, nullable=false)
 	private float precio_producto;
@@ -88,20 +87,20 @@ public class Productos implements Serializable {
 		this.nombre_producto = nombre_producto;
 	}
 
-	public String getMarca_id() {
+	public int getMarca_id() {
 		return marca_id;
 	}
 
-	public void setMarca_id(String marca_id) {
+	public void setMarca_id(int marca_id) {
 		this.marca_id = marca_id;
 	}
 
-	public String getExistencias() {
-		return existencias;
+	public int getExistencia() {
+		return existencia;
 	}
 
-	public void setExistencias(String existencias) {
-		this.existencias = existencias;
+	public void setExistencia(int existencia) {
+		this.existencia = existencia;
 	}
 
 	public float getPrecio_producto() {
@@ -183,6 +182,8 @@ public class Productos implements Serializable {
 	public void setComentarios_producto(List<Comentarios_producto> comentarios_producto) {
 		this.comentarios_producto = comentarios_producto;
 	}
+
+	
 
 	
 	

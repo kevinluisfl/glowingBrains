@@ -21,12 +21,12 @@ public class Pqr implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_historio_pqr;
+	private Long id_pqr;
 		
 	@Column(length = 15, nullable=false)
-	private int cliente_id;
+	private int usuario_id;
 	
-	@Column(length = 15, nullable=false)
+	@Column(length = 150, nullable=false)
 	private String comentario_pqr;
 	
 	@Column(length = 15, nullable=false)
@@ -43,20 +43,20 @@ public class Pqr implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Pedidos pedidos;
 
-	public int getId_historio_pqr() {
-		return id_historio_pqr;
+	public Long getId_pqr() {
+		return id_pqr;
 	}
 
-	public void setId_historio_pqr(int id_historio_pqr) {
-		this.id_historio_pqr = id_historio_pqr;
+	public void setId_pqr(Long id_pqr) {
+		this.id_pqr = id_pqr;
 	}
 
-	public int getCliente_id() {
-		return cliente_id;
+	public int getUsuario_id() {
+		return usuario_id;
 	}
 
-	public void setCliente_id(int cliente_id) {
-		this.cliente_id = cliente_id;
+	public void setUsuario_id(int usuario_id) {
+		this.usuario_id = usuario_id;
 	}
 
 	public String getComentario_pqr() {
@@ -66,8 +66,6 @@ public class Pqr implements Serializable {
 	public void setComentario_pqr(String comentario_pqr) {
 		this.comentario_pqr = comentario_pqr;
 	}
-
-
 
 	public String getTipo_pqr() {
 		return tipo_pqr;
@@ -93,7 +91,15 @@ public class Pqr implements Serializable {
 		this.usuarios = usuarios;
 	}
 
+	public Pedidos getPedidos() {
+		return pedidos;
+	}
 
+	public void setPedidos(Pedidos pedidos) {
+		this.pedidos = pedidos;
+	}
+
+	
 	
 	
 

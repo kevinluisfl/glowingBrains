@@ -25,26 +25,23 @@ public class Promociones implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_promocion;
+	private Long id_promocion;
 	
 	@Column(length = 15, nullable=false)
 	private int producto_id;
 	
-	@Column(length = 15, nullable=false)
+	@Column(length = 150, nullable=false)
 	private String descripcion_promocion;
 	
 	@Column(length = 15, nullable=false)
 	private float valor_descuento_promocion;
 	
-	@Column(length = 15, nullable=false)
+	@Column(length = 30, nullable=false)
 	private String codigo_promocion;
 	
 	@Column(length = 15, nullable=false)
 	private String estado_promocion;
-	
-	@Column(length = 15, nullable=false)
-	private String nombre_departamento;
-	
+			
 	@Column(name = "fecha_inicio_promocion")
 	@Temporal(TemporalType.DATE)
 	private Date fecha_inicio_promocion;
@@ -57,11 +54,11 @@ public class Promociones implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Productos productos;
 
-	public int getId_promocion() {
+	public Long getId_promocion() {
 		return id_promocion;
 	}
 
-	public void setId_promocion(int id_promocion) {
+	public void setId_promocion(Long id_promocion) {
 		this.id_promocion = id_promocion;
 	}
 
@@ -105,14 +102,6 @@ public class Promociones implements Serializable{
 		this.estado_promocion = estado_promocion;
 	}
 
-	public String getNombre_departamento() {
-		return nombre_departamento;
-	}
-
-	public void setNombre_departamento(String nombre_departamento) {
-		this.nombre_departamento = nombre_departamento;
-	}
-
 	public Date getFecha_inicio_promocion() {
 		return fecha_inicio_promocion;
 	}
@@ -136,9 +125,7 @@ public class Promociones implements Serializable{
 	public void setProductos(Productos productos) {
 		this.productos = productos;
 	}
-	
-	
-	
+
 	
 
 	

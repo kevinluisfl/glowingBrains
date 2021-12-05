@@ -21,7 +21,7 @@ public class Comentarios_producto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_comentario;
+	private Long id_comentario_producto;
 	
 	@Column(length = 15, nullable=false)
 	private int producto_id;
@@ -33,7 +33,7 @@ public class Comentarios_producto implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_comentario;
 	
-	@Column(length = 15, nullable=false)
+	@Column(length = 150, nullable=false)
 	private String comentario_producto;
 	
 	@JsonIgnoreProperties(value={"Comentarios_producto", "hibernateLazyInitializer", "handler"}, allowSetters=true)
@@ -44,12 +44,12 @@ public class Comentarios_producto implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Productos productos;
 
-	public Long getId_comentario() {
-		return id_comentario;
+	public Long getId_comentario_producto() {
+		return id_comentario_producto;
 	}
 
-	public void setId_comentario(Long id_comentario) {
-		this.id_comentario = id_comentario;
+	public void setId_comentario_producto(Long id_comentario_producto) {
+		this.id_comentario_producto = id_comentario_producto;
 	}
 
 	public int getProducto_id() {
@@ -84,8 +84,6 @@ public class Comentarios_producto implements Serializable {
 		this.comentario_producto = comentario_producto;
 	}
 
-
-
 	public Usuarios getUsuarios() {
 		return usuarios;
 	}
@@ -101,6 +99,7 @@ public class Comentarios_producto implements Serializable {
 	public void setProductos(Productos productos) {
 		this.productos = productos;
 	}
+
 	
 	
 

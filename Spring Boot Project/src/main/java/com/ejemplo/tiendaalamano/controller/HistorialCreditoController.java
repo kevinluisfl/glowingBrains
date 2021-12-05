@@ -1,6 +1,6 @@
 package com.ejemplo.tiendaalamano.controller;
 
-import com.ejemplo.tiendaalamano.model.Historial_credito;
+import com.ejemplo.tiendaalamano.model.historial_creditos;
 import com.ejemplo.tiendaalamano.service.HistorialCreditoService;
 
 import java.util.List;
@@ -26,20 +26,20 @@ public class HistorialCreditoController {
 
     @RequestMapping(value = "/", method = RequestMethod.POST, consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createHistorialCredito(@RequestBody @Validated Historial_credito historialcredito) {
+    public void createHistorialCredito(@RequestBody @Validated historial_creditos historialcredito) {
     	historialcreditoService.save(historialcredito);
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public List<Historial_credito> getAllHistorialCreditos() {
+    public List<historial_creditos> getAllHistorialCreditos() {
         return historialcreditoService.findAll();
     }
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody Historial_credito historialcreditoDetalle, Long id){
-		Optional<Historial_credito> historialcredito = historialcreditoService.findById(id);
+	public ResponseEntity<?> update(@RequestBody historial_creditos historialcreditoDetalle, Long id){
+		Optional<historial_creditos> historialcredito = historialcreditoService.findById(id);
 		if(!historialcredito.isPresent()) {
 			return ResponseEntity.notFound().build();
 		} 
@@ -56,7 +56,7 @@ public class HistorialCreditoController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Historial_credito> getHistorialcreditoById(Long id) {
+    public Optional<historial_creditos> getHistorialcreditoById(Long id) {
         return historialcreditoService.findById(id);
     }
 }

@@ -22,7 +22,7 @@ public class Departamentos implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_departamento;
+	private Long id_departamento;
 	
 	@Column(length = 30, nullable=false)
 	private String nombre_departamento;
@@ -31,11 +31,11 @@ public class Departamentos implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "departamentos", cascade = CascadeType.ALL) 
 	private List<Ciudades> ciudades;
 
-	public int getId_departamento() {
+	public Long getId_departamento() {
 		return id_departamento;
 	}
 
-	public void setId_departamento(int id_departamento) {
+	public void setId_departamento(Long id_departamento) {
 		this.id_departamento = id_departamento;
 	}
 
@@ -54,6 +54,8 @@ public class Departamentos implements Serializable {
 	public void setCiudades(List<Ciudades> ciudades) {
 		this.ciudades = ciudades;
 	}
+
+	
 
 	
 }

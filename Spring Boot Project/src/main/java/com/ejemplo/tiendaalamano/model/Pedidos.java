@@ -30,7 +30,7 @@ public class Pedidos implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_producto;
+	private int id_pedido;
 	
 	@Column(length = 15, nullable=false)
 	private int usuario_id;
@@ -48,7 +48,7 @@ public class Pedidos implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_pedido;
 	
-	@Column(length = 15, nullable=false)
+	@Column(length = 20, nullable=false)
 	private String estado_pedido;
 	
 	@Column(length = 15, nullable=false)
@@ -73,11 +73,11 @@ public class Pedidos implements Serializable {
 	@Column(length = 15, nullable=false)
 	private int puntos_acumulados;
 	
-	@Column(length = 15, nullable=false)
+	@Column(length = 20, nullable=false)
 	private String cupon_descuento;
 	
 	@Column(length = 15, nullable=false)
-	private int pagar_con_puntos;
+	private int pagar_puntos;
 	
 	@Column(length = 15, nullable=false)
 	private int domiciliario_id;
@@ -92,7 +92,7 @@ public class Pedidos implements Serializable {
 	private String comentario_calificacion;
 	
 	@Column(length = 15, nullable=false)
-	private boolean si_lista;
+	private boolean lista_mercado;
 
 	@JsonIgnoreProperties(value={"pedidos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
@@ -118,12 +118,12 @@ public class Pedidos implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidos", cascade = CascadeType.ALL)
     private List<Pqr> pqr;
 
-	public int getId_producto() {
-		return id_producto;
+	public int getId_pedido() {
+		return id_pedido;
 	}
 
-	public void setId_producto(int id_producto) {
-		this.id_producto = id_producto;
+	public void setId_pedido(int id_pedido) {
+		this.id_pedido = id_pedido;
 	}
 
 	public int getUsuario_id() {
@@ -238,12 +238,12 @@ public class Pedidos implements Serializable {
 		this.cupon_descuento = cupon_descuento;
 	}
 
-	public int getPagar_con_puntos() {
-		return pagar_con_puntos;
+	public int getPagar_puntos() {
+		return pagar_puntos;
 	}
 
-	public void setPagar_con_puntos(int pagar_con_puntos) {
-		this.pagar_con_puntos = pagar_con_puntos;
+	public void setPagar_puntos(int pagar_puntos) {
+		this.pagar_puntos = pagar_puntos;
 	}
 
 	public int getDomiciliario_id() {
@@ -278,12 +278,12 @@ public class Pedidos implements Serializable {
 		this.comentario_calificacion = comentario_calificacion;
 	}
 
-	public boolean isSi_lista() {
-		return si_lista;
+	public boolean isLista_mercado() {
+		return lista_mercado;
 	}
 
-	public void setSi_lista(boolean si_lista) {
-		this.si_lista = si_lista;
+	public void setLista_mercado(boolean lista_mercado) {
+		this.lista_mercado = lista_mercado;
 	}
 
 	public Usuarios getUsuarios() {
@@ -310,6 +310,14 @@ public class Pedidos implements Serializable {
 		this.direcciones = direcciones;
 	}
 
+	public Puntos_ventas getPuntos_ventas() {
+		return puntos_ventas;
+	}
+
+	public void setPuntos_ventas(Puntos_ventas puntos_ventas) {
+		this.puntos_ventas = puntos_ventas;
+	}
+
 	public List<Detalle_pedidos> getDetalle_pedidos() {
 		return detalle_pedidos;
 	}
@@ -324,14 +332,6 @@ public class Pedidos implements Serializable {
 
 	public void setPqr(List<Pqr> pqr) {
 		this.pqr = pqr;
-	}
-
-	public Puntos_ventas getPuntos_ventas() {
-		return puntos_ventas;
-	}
-
-	public void setPuntos_ventas(Puntos_ventas puntos_ventas) {
-		this.puntos_ventas = puntos_ventas;
 	}
 
 	

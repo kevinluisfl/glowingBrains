@@ -21,10 +21,10 @@ public class Redes_sociales  implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_red_social;
+	private Long id_red_social;
 	
 	@Column(length = 15, nullable=false)
-	private int id_puntodeventa;
+	private int puntoventa_id;
 	
 	@Column(length = 20, nullable=false)
 	private String cuenta_red_social;
@@ -45,20 +45,20 @@ public class Redes_sociales  implements Serializable{
 	@ManyToOne  (fetch = FetchType.LAZY) 
 	private Puntos_ventas puntos_ventas;
 
-	public int getId_red_social() {
+	public Long getId_red_social() {
 		return id_red_social;
 	}
 
-	public void setId_red_social(int id_red_social) {
+	public void setId_red_social(Long id_red_social) {
 		this.id_red_social = id_red_social;
 	}
 
-	public int getId_puntodeventa() {
-		return id_puntodeventa;
+	public int getPuntoventa_id() {
+		return puntoventa_id;
 	}
 
-	public void setId_puntodeventa(int id_puntodeventa) {
-		this.id_puntodeventa = id_puntodeventa;
+	public void setPuntoventa_id(int puntoventa_id) {
+		this.puntoventa_id = puntoventa_id;
 	}
 
 	public String getCuenta_red_social() {
@@ -101,15 +101,14 @@ public class Redes_sociales  implements Serializable{
 		this.nombre_administrador = nombre_administrador;
 	}
 
-	public Puntos_ventas getPuntos_venta() {
+	public Puntos_ventas getPuntos_ventas() {
 		return puntos_ventas;
 	}
 
-	public void setPuntos_venta(Puntos_ventas puntos_venta) {
-		this.puntos_ventas = puntos_venta;
+	public void setPuntos_ventas(Puntos_ventas puntos_ventas) {
+		this.puntos_ventas = puntos_ventas;
 	}
-	
-	
+
 	
 
 

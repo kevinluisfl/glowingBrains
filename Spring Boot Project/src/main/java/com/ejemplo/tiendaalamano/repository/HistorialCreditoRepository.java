@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.ejemplo.tiendaalamano.model.Historial_credito;
+import com.ejemplo.tiendaalamano.model.historial_creditos;
 
 @Repository
-public interface HistorialCreditoRepository extends JpaRepository<Historial_credito, Long> {
+public interface HistorialCreditoRepository extends JpaRepository<historial_creditos, Long> {
 	
 }

@@ -44,11 +44,11 @@ public class Creditos implements Serializable {
 	
 	@Column(length = 15, nullable=false)
 	@Temporal(TemporalType.DATE)
-	private Date fecha_inicio;
+	private Date fecha_inicio_credito;
 	
 	@Column(length = 15, nullable=false)
 	@Temporal(TemporalType.DATE)
-	private Date fecha_final;
+	private Date fecha_final_credito;
 	
 	@Column(length = 15, nullable=false)
 	private float valor_cuota;
@@ -64,7 +64,7 @@ public class Creditos implements Serializable {
 	private int cuotas_mora;
 	
 	@Column(length = 15, nullable=false)
-	private float interes_corrientes;
+	private float interes_corriente;
 	
 	@Column(length = 15, nullable=false)
 	private float interes_mora;
@@ -75,7 +75,7 @@ public class Creditos implements Serializable {
 	
 	@JsonIgnoreProperties(value={"creditos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "creditos", cascade = CascadeType.ALL) 
-	private List<Historial_credito> historial_credito;
+	private List<historial_creditos> historial_credito;
 
 	public Long getId_credito() {
 		return id_credito;
@@ -117,20 +117,20 @@ public class Creditos implements Serializable {
 		this.cuota_actual = cuota_actual;
 	}
 
-	public Date getFecha_inicio() {
-		return fecha_inicio;
+	public Date getFecha_inicio_credito() {
+		return fecha_inicio_credito;
 	}
 
-	public void setFecha_inicio(Date fecha_inicio) {
-		this.fecha_inicio = fecha_inicio;
+	public void setFecha_inicio_credito(Date fecha_inicio_credito) {
+		this.fecha_inicio_credito = fecha_inicio_credito;
 	}
 
-	public Date getFecha_final() {
-		return fecha_final;
+	public Date getFecha_final_credito() {
+		return fecha_final_credito;
 	}
 
-	public void setFecha_final(Date fecha_final) {
-		this.fecha_final = fecha_final;
+	public void setFecha_final_credito(Date fecha_final_credito) {
+		this.fecha_final_credito = fecha_final_credito;
 	}
 
 	public float getValor_cuota() {
@@ -165,12 +165,12 @@ public class Creditos implements Serializable {
 		this.cuotas_mora = cuotas_mora;
 	}
 
-	public float getInteres_corrientes() {
-		return interes_corrientes;
+	public float getInteres_corriente() {
+		return interes_corriente;
 	}
 
-	public void setInteres_corrientes(float interes_corrientes) {
-		this.interes_corrientes = interes_corrientes;
+	public void setInteres_corriente(float interes_corriente) {
+		this.interes_corriente = interes_corriente;
 	}
 
 	public float getInteres_mora() {
@@ -181,8 +181,6 @@ public class Creditos implements Serializable {
 		this.interes_mora = interes_mora;
 	}
 
-
-
 	public Usuarios getUsuarios() {
 		return usuarios;
 	}
@@ -191,14 +189,15 @@ public class Creditos implements Serializable {
 		this.usuarios = usuarios;
 	}
 
-	public List<Historial_credito> getHistorial_credito() {
+	public List<historial_creditos> getHistorial_credito() {
 		return historial_credito;
 	}
 
-	public void setHistorial_credito(List<Historial_credito> historial_credito) {
+	public void setHistorial_credito(List<historial_creditos> historial_credito) {
 		this.historial_credito = historial_credito;
 	}
 
+	
 	
 	
 	

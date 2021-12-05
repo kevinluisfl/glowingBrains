@@ -19,7 +19,7 @@ public class Detalle_pedidos implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_detalle_pedido;
+	private Long id_detalle_pedido;
 	
 	@Column(length = 50, nullable=false)
 	private int pedido_id;
@@ -53,11 +53,11 @@ public class Detalle_pedidos implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Pedidos pedidos;
 
-	public int getId_detalle_pedido() {
+	public Long getId_detalle_pedido() {
 		return id_detalle_pedido;
 	}
 
-	public void setId_detalle_pedido(int id_detalle_pedido) {
+	public void setId_detalle_pedido(Long id_detalle_pedido) {
 		this.id_detalle_pedido = id_detalle_pedido;
 	}
 
@@ -125,8 +125,6 @@ public class Detalle_pedidos implements Serializable {
 		this.subtotal_producto = subtotal_producto;
 	}
 
-
-
 	public Productos getProductos() {
 		return productos;
 	}
@@ -142,7 +140,7 @@ public class Detalle_pedidos implements Serializable {
 	public void setPedidos(Pedidos pedidos) {
 		this.pedidos = pedidos;
 	}
-	
+
 	
 	
 

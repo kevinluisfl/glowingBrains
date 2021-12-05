@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ejemplo.tiendaalamano.model.Historial_credito;
+import com.ejemplo.tiendaalamano.model.historial_creditos;
 import com.ejemplo.tiendaalamano.repository.HistorialCreditoRepository;
 
 @Service
@@ -17,19 +17,19 @@ public class HistorialCreditoServiceImpl implements HistorialCreditoService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Historial_credito> findAll() {
+	public List<historial_creditos> findAll() {
 		return historialcreditoRepository.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Optional<Historial_credito> findById(Long id) {
+	public Optional<historial_creditos> findById(Long id) {
 		return historialcreditoRepository.findById(id);
 	}
 
 	@Override
 	@Transactional
-	public Historial_credito save(Historial_credito historialcredito) {
+	public historial_creditos save(historial_creditos historialcredito) {
 		return historialcreditoRepository.save(historialcredito);
 	}
 

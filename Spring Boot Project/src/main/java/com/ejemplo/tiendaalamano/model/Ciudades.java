@@ -94,7 +94,7 @@ public class Ciudades implements Serializable {
 		this.puntos_ventas = puntos_ventas;
 	}
 
-
+	
 
 	
 

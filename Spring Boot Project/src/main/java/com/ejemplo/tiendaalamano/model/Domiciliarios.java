@@ -23,7 +23,7 @@ public class Domiciliarios implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_domiciliario;
+	private Long id_domiciliario;
 	
 
 	@Column(length = 30, nullable=false)
@@ -37,11 +37,11 @@ public class Domiciliarios implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "domiciliarios", cascade = CascadeType.ALL) 
 	private List<Pedidos> pedidos;
 
-	public int getId_domiciliario() {
+	public Long getId_domiciliario() {
 		return id_domiciliario;
 	}
 
-	public void setId_domiciliario(int id_domiciliario) {
+	public void setId_domiciliario(Long id_domiciliario) {
 		this.id_domiciliario = id_domiciliario;
 	}
 
@@ -69,8 +69,6 @@ public class Domiciliarios implements Serializable{
 		this.pedidos = pedidos;
 	}
 
-
 	
-
 	
 }

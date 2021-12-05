@@ -26,7 +26,7 @@ public class Subcategorias implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_subcategoria;
 	
-	@Column(length = 15, nullable=false)
+	@Column(length = 30, nullable=false)
 	private String nombre_subcategoria;
 	
 	@Column(length = 15, nullable=false)

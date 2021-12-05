@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,19 +11,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
 @Table(name="historial_credito")
-public class Historial_credito implements Serializable {
+public class historial_creditos implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_historio_credito;
+	private Long id_historial_credito;
 	
 	@Column(length = 15, nullable=false)
 	private int credito_id;
@@ -30,19 +33,20 @@ public class Historial_credito implements Serializable {
 	@Column(length = 15, nullable=false)
 	private float monto_pagado_credito;
 	
-	@Column(length = 15, nullable=false)
-	private int fecha_pago_credito ;
+	@Column(name = "fecha_entrega")
+	@Temporal(TemporalType.DATE)
+	private Date fecha_pago_credito ;
 
 	@JsonIgnoreProperties(value={"historial_credito", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Creditos creditos;
 
-	public Long getId_historio_credito() {
-		return id_historio_credito;
+	public Long getId_historial_credito() {
+		return id_historial_credito;
 	}
 
-	public void setId_historio_credito(Long id_historio_credito) {
-		this.id_historio_credito = id_historio_credito;
+	public void setId_historial_credito(Long id_historial_credito) {
+		this.id_historial_credito = id_historial_credito;
 	}
 
 	public int getCredito_id() {
@@ -61,11 +65,11 @@ public class Historial_credito implements Serializable {
 		this.monto_pagado_credito = monto_pagado_credito;
 	}
 
-	public int getFecha_pago_credito() {
+	public Date getFecha_pago_credito() {
 		return fecha_pago_credito;
 	}
 
-	public void setFecha_pago_credito(int fecha_pago_credito) {
+	public void setFecha_pago_credito(Date fecha_pago_credito) {
 		this.fecha_pago_credito = fecha_pago_credito;
 	}
 
@@ -76,7 +80,7 @@ public class Historial_credito implements Serializable {
 	public void setCreditos(Creditos creditos) {
 		this.creditos = creditos;
 	}
-	
+
 	
 	
 }

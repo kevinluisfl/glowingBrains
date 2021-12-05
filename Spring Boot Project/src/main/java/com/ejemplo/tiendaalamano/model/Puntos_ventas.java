@@ -24,16 +24,16 @@ public class Puntos_ventas implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_puntos_ventao;
+	private Long id_puntoventa;
 	
 	@Column(length = 30, nullable=false)
-	private String nombre_puntoventas;
+	private String nombre_puntoventa;
 	
 	@Column(length = 50, nullable=false)
-	private String direccion_puntosventas;
+	private String direccion_puntoventa;
 	
 	@Column(length = 15, nullable=false)
-	private String telefono_puntoventas;
+	private String telefono_puntoventa;
 	
 	@Column(length = 25, nullable=false)
 	private String coordenadas;
@@ -53,36 +53,36 @@ public class Puntos_ventas implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "puntos_ventas", cascade = CascadeType.ALL)
     private List<Pedidos> pedidos;
 
-	public int getId_puntos_ventao() {
-		return id_puntos_ventao;
+	public Long getId_puntoventa() {
+		return id_puntoventa;
 	}
 
-	public void setId_puntos_ventao(int id_puntos_ventao) {
-		this.id_puntos_ventao = id_puntos_ventao;
+	public void setId_puntoventa(Long id_puntoventa) {
+		this.id_puntoventa = id_puntoventa;
 	}
 
-	public String getNombre_puntoventas() {
-		return nombre_puntoventas;
+	public String getNombre_puntoventa() {
+		return nombre_puntoventa;
 	}
 
-	public void setNombre_puntoventas(String nombre_puntoventas) {
-		this.nombre_puntoventas = nombre_puntoventas;
+	public void setNombre_puntoventa(String nombre_puntoventa) {
+		this.nombre_puntoventa = nombre_puntoventa;
 	}
 
-	public String getDireccion_puntosventas() {
-		return direccion_puntosventas;
+	public String getDireccion_puntoventa() {
+		return direccion_puntoventa;
 	}
 
-	public void setDireccion_puntosventas(String direccion_puntosventas) {
-		this.direccion_puntosventas = direccion_puntosventas;
+	public void setDireccion_puntoventa(String direccion_puntoventa) {
+		this.direccion_puntoventa = direccion_puntoventa;
 	}
 
-	public String getTelefono_puntoventas() {
-		return telefono_puntoventas;
+	public String getTelefono_puntoventa() {
+		return telefono_puntoventa;
 	}
 
-	public void setTelefono_puntoventas(String telefono_puntoventas) {
-		this.telefono_puntoventas = telefono_puntoventas;
+	public void setTelefono_puntoventa(String telefono_puntoventa) {
+		this.telefono_puntoventa = telefono_puntoventa;
 	}
 
 	public String getCoordenadas() {
@@ -125,6 +125,7 @@ public class Puntos_ventas implements Serializable {
 		this.pedidos = pedidos;
 	}
 
+	
 
 	
 	

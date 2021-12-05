@@ -23,7 +23,7 @@ public class Marcas implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_marca;
 	
-	@Column(length = 15, nullable=false)
+	@Column(length = 30, nullable=false)
 	private String nombre_marca;
 	
 	@JsonIgnoreProperties(value={"marcas", "hibernateLazyInitializer", "handler"}, allowSetters=true)
@@ -53,6 +53,8 @@ public class Marcas implements Serializable{
 	public void setProductos(List<Productos> productos) {
 		this.productos = productos;
 	}
+
+	
 
 
 

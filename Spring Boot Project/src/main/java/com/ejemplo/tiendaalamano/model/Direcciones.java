@@ -23,7 +23,7 @@ public class Direcciones implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_direccion;
+	private Long id_direccion;
 	
 	@Column(length = 50, nullable=false)
 	private String direccion_envio;
@@ -46,11 +46,11 @@ public class Direcciones implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "direcciones", cascade = CascadeType.ALL) 
 	private List<Pedidos> pedidos;
 
-	public int getId_direccion() {
+	public Long getId_direccion() {
 		return id_direccion;
 	}
 
-	public void setId_direccion(int id_direccion) {
+	public void setId_direccion(Long id_direccion) {
 		this.id_direccion = id_direccion;
 	}
 
@@ -78,8 +78,6 @@ public class Direcciones implements Serializable {
 		this.ciudad_id = ciudad_id;
 	}
 
-	
-
 	public Usuarios getUsuarios() {
 		return usuarios;
 	}
@@ -104,6 +102,7 @@ public class Direcciones implements Serializable {
 		this.pedidos = pedidos;
 	}
 
+	
 	
 	
 }
