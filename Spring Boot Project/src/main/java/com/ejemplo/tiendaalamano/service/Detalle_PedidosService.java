@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ejemplo.tiendaalamano.model.Departamentos;
-import com.ejemplo.tiendaalamano.repository.DepartamentosRepository;
+import com.ejemplo.tiendaalamano.model.Detalle_pedidos;
 import com.ejemplo.tiendaalamano.repository.Detalle_PedidosRepository;
 
 
@@ -16,12 +15,12 @@ public class Detalle_PedidosService {
 	Detalle_PedidosRepository detalle_PedidosRepository;
 
 
-	public List<Detalle_Pedidos> obtenerPedidos() {
+	public List<Detalle_pedidos> obtenerPedidos() {
 		return detalle_PedidosRepository.findAll();
 	}
 	
-	public Departamentos guardarPedido(Detalle_Pedidos detalle_Pedido) {
-		return detalle_PedidosRepository.save(detalle_Pedido);
+	public Detalle_pedidos guardarPedido(Detalle_pedidos detalle_pedido) {
+		return detalle_PedidosRepository.save(detalle_pedido);
 	}
 	
 	public boolean eleminarPedido(Long id) {

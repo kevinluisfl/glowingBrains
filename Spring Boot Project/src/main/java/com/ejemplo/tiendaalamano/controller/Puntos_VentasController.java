@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import com.ejemplo.tiendaalamano.model.Puntos_Ventas;
-
+import com.ejemplo.tiendaalamano.model.Puntos_ventas;
 import com.ejemplo.tiendaalamano.service.Puntos_VentasService;
 
 
@@ -28,13 +27,13 @@ public class Puntos_VentasController {
 	Puntos_VentasService puntos_VentasService;
 	
 	@GetMapping()
-	public List<Puntos_Ventas> obtenerPedidos(){
+	public List<Puntos_ventas> obtenerPedidos(){
 		return puntos_VentasService.obtenerPedidos();
 	}
 	
 	@PostMapping
-	public Puntos_Ventas guaradarPedido(@RequestBody Puntos_Ventas punto_Ventas) {
-		return puntos_VentasService.guardarPedido(punto_Ventas);
+	public Puntos_ventas guaradarPedido(@RequestBody Puntos_ventas punto_ventas) {
+		return puntos_VentasService.guardarPedido(punto_ventas);
 	}
 	
 	@DeleteMapping(path="/{id}")

@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ejemplo.tiendaalamano.model.Ciudades;
 
-import com.ejemplo.tiendaalamano.service.CiudadesService;
+import com.ejemplo.tiendaalamano.model.Detalle_pedidos;
+
 import com.ejemplo.tiendaalamano.service.Detalle_PedidosService;
 
 
@@ -28,12 +28,12 @@ public class Detalle_PedidosController {
 	Detalle_PedidosService detalle_PedidosService;
 	
 	@GetMapping()
-	public List<Detalle_Pedidos> obtenerPedidos(){
+	public List<Detalle_pedidos> obtenerPedidos(){
 		return detalle_PedidosService.obtenerPedidos();
 	}
 	
 	@PostMapping
-	public Detalle_Pedidos guaradarPedido(@RequestBody Detalle_Pedidos detalle_Pedido) {
+	public Detalle_pedidos guaradarPedido(@RequestBody Detalle_pedidos detalle_Pedido) {
 		return detalle_PedidosService.guardarPedido(detalle_Pedido);
 	}
 	
