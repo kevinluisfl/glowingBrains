@@ -22,7 +22,7 @@ public class Historial_credito implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_historio_credito;
+	private Long id_historio_credito;
 	
 	@Column(length = 15, nullable=false)
 	private int credito_id;
@@ -37,11 +37,11 @@ public class Historial_credito implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Creditos creditos;
 
-	public int getId_historio_credito() {
+	public Long getId_historio_credito() {
 		return id_historio_credito;
 	}
 
-	public void setId_historio_credito(int id_historio_credito) {
+	public void setId_historio_credito(Long id_historio_credito) {
 		this.id_historio_credito = id_historio_credito;
 	}
 

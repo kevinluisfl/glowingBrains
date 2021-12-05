@@ -44,7 +44,7 @@ public class CategoriaController {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(categoriaDetalle, categoria.get());
-//		categoria.get().setId_categoria(id);
+		categoria.get().setId_categoria(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.save(categoria.get()));
 	}
 	

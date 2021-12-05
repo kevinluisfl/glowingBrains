@@ -20,7 +20,7 @@ public class Marcas implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_marca;
+	private Long id_marca;
 	
 	@Column(length = 15, nullable=false)
 	private String nombre_marca;
@@ -29,11 +29,11 @@ public class Marcas implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "marcas", cascade = CascadeType.ALL) 
 	private Productos productos;
 
-	public int getId_marca() {
+	public Long getId_marca() {
 		return id_marca;
 	}
 
-	public void setId_marca(int id_marca) {
+	public void setId_marca(Long id_marca) {
 		this.id_marca = id_marca;
 	}
 

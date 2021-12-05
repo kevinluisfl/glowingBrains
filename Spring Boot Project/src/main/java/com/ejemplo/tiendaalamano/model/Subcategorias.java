@@ -23,7 +23,7 @@ public class Subcategorias implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_subcategoria;
+	private Long id_subcategoria;
 	
 	@Column(length = 15, nullable=false)
 	private String nombre_subategoria;
@@ -39,11 +39,11 @@ public class Subcategorias implements Serializable{
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Categorias categorias;
 
-	public int getId_subcategoria() {
+	public Long getId_subcategoria() {
 		return id_subcategoria;
 	}
 
-	public void setId_subcategoria(int id_subcategoria) {
+	public void setId_subcategoria(Long id_subcategoria) {
 		this.id_subcategoria = id_subcategoria;
 	}
 

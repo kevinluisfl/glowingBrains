@@ -44,7 +44,7 @@ public class SubcategoriaController {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(subcategoriaDetalle, subcategoria.get());
-//		subcategoria.get().setId_subcategoria(id);
+		subcategoria.get().setId_subcategoria(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(subcategoriaService.save(subcategoria.get()));
 	}
 	

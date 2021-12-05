@@ -44,7 +44,7 @@ public class MarcaController {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(marcaDetalle, marca.get());
-//		marca.get().setId_marca(id);
+		marca.get().setId_marca(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(marcaService.save(marca.get()));
 	}
 	

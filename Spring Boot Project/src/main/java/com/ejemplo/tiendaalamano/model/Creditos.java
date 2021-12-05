@@ -26,7 +26,7 @@ public class Creditos implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_credito;
+	private Long id_credito;
 	
 	@Column(length = 15, nullable=false)
 	private int usuario_id;
@@ -75,11 +75,11 @@ public class Creditos implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "creditos", cascade = CascadeType.ALL) 
 	private Historial_credito historial_credito;
 
-	public int getId_credito() {
+	public Long getId_credito() {
 		return id_credito;
 	}
 
-	public void setId_credito(int id_credito) {
+	public void setId_credito(Long id_credito) {
 		this.id_credito = id_credito;
 	}
 

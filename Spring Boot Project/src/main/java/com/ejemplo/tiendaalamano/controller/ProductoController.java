@@ -44,7 +44,7 @@ public class ProductoController {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(productoDetalle, producto.get());
-//		producto.get().setId_producto(id);
+		producto.get().setId_producto(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(productoService.save(producto.get()));
 	}
 	

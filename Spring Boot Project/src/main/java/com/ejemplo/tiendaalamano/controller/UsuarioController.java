@@ -44,7 +44,7 @@ public class UsuarioController {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(usuarioDetalle, usuario.get());
-//		usuario.get().setId_usuario(id);
+		usuario.get().setId_usuario(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario.get()));
 	}
 	

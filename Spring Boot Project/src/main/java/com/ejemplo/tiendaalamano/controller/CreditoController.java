@@ -44,7 +44,7 @@ public class CreditoController {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(creditoDetalle, credito.get());
-//		credito.get().setId_credito(id);
+		credito.get().setId_credito(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(creditoService.save(credito.get()));
 	}
 	
