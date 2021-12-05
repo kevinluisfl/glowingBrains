@@ -2,6 +2,7 @@ package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -107,11 +108,11 @@ public class Pedidos implements Serializable {
 	
 	@JsonIgnoreProperties(value = {"pedidos", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidos", cascade = CascadeType.ALL)
-    private Detalle_pedidos detalle_pedidos;
+    private List<Detalle_pedidos> detalle_pedidos;
 	
 	@JsonIgnoreProperties(value = {"pedidos", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidos", cascade = CascadeType.ALL)
-    private Pqr pqr;
+    private List<Pqr> pqr;
 
 	public int getId_producto() {
 		return id_producto;
@@ -305,21 +306,22 @@ public class Pedidos implements Serializable {
 		this.direcciones = direcciones;
 	}
 
-	public Detalle_pedidos getDetalle_pedidos() {
+	public List<Detalle_pedidos> getDetalle_pedidos() {
 		return detalle_pedidos;
 	}
 
-	public void setDetalle_pedidos(Detalle_pedidos detalle_pedidos) {
+	public void setDetalle_pedidos(List<Detalle_pedidos> detalle_pedidos) {
 		this.detalle_pedidos = detalle_pedidos;
 	}
 
-	public Pqr getPqr() {
+	public List<Pqr> getPqr() {
 		return pqr;
 	}
 
-	public void setPqr(Pqr pqr) {
+	public void setPqr(List<Pqr> pqr) {
 		this.pqr = pqr;
 	}
+
 	
 	
 	

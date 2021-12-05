@@ -43,7 +43,7 @@ public class Redes_sociales  implements Serializable{
 	
 	@JsonIgnoreProperties(value={"Redes_sociales", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne  (fetch = FetchType.LAZY) 
-	private Puntos_ventas puntos_venta;
+	private Puntos_ventas puntos_ventas;
 
 	public int getId_red_social() {
 		return id_red_social;
@@ -102,11 +102,11 @@ public class Redes_sociales  implements Serializable{
 	}
 
 	public Puntos_ventas getPuntos_venta() {
-		return puntos_venta;
+		return puntos_ventas;
 	}
 
 	public void setPuntos_venta(Puntos_ventas puntos_venta) {
-		this.puntos_venta = puntos_venta;
+		this.puntos_ventas = puntos_venta;
 	}
 	
 	

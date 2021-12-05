@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -38,8 +39,12 @@ public class Direcciones implements Serializable {
 	private Usuarios usuario;
 	
 	@JsonIgnoreProperties(value={"direcciones", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@ManyToOne(fetch = FetchType.LAZY) 
+	private Ciudades ciudad;
+	
+	@JsonIgnoreProperties(value={"direcciones", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL) 
-	private Pedidos pedidos;
+	private List<Pedidos> pedidos;
 
 	public int getId_direccion() {
 		return id_direccion;
@@ -81,16 +86,22 @@ public class Direcciones implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public Pedidos getPedidos() {
+	public Ciudades getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(Ciudades ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public List<Pedidos> getPedidos() {
 		return pedidos;
 	}
 
-	public void setPedidos(Pedidos pedidos) {
+	public void setPedidos(List<Pedidos> pedidos) {
 		this.pedidos = pedidos;
 	}
-	
-	
-	
+
 	
 	
 }

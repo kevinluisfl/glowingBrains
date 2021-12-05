@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -59,19 +60,19 @@ public class Usuarios implements Serializable{
 	
     @JsonIgnoreProperties(value = {"usuarios", "hibernateLazyInitializer", "handler"}, allowSetters = true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarios", cascade = CascadeType.ALL)
-	 private Comentarios_producto comentarios_producto;
+	 private List<Comentarios_producto> comentarios_producto;
     
     @JsonIgnoreProperties(value = {"usuarios", "hibernateLazyInitializer", "handler"}, allowSetters = true)
  	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarios", cascade = CascadeType.ALL)
- 	 private  Pedidos pedidos;
+ 	 private  List<Pedidos> pedidos;
     
     @JsonIgnoreProperties(value = {"usuarios", "hibernateLazyInitializer", "handler"}, allowSetters = true)
  	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarios", cascade = CascadeType.ALL)
- 	 private Pqr pqr;
+ 	 private List<Pqr> pqr;
     
     @JsonIgnoreProperties(value = {"usuarios", "hibernateLazyInitializer", "handler"}, allowSetters = true)
  	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarios", cascade = CascadeType.ALL)
- 	 private Direcciones direcciones;
+ 	 private List<Direcciones> direcciones;
 
 	public Long getId_usuario() {
 		return id_usuario;
@@ -161,49 +162,39 @@ public class Usuarios implements Serializable{
 		this.puntos_totales = puntos_totales;
 	}
 
-	public Comentarios_producto getComentarios_producto() {
+	public List<Comentarios_producto> getComentarios_producto() {
 		return comentarios_producto;
 	}
 
-	public void setComentarios_producto(Comentarios_producto comentarios_producto) {
+	public void setComentarios_producto(List<Comentarios_producto> comentarios_producto) {
 		this.comentarios_producto = comentarios_producto;
 	}
 
-	public Pedidos getPedidos() {
+	public List<Pedidos> getPedidos() {
 		return pedidos;
 	}
 
-	public void setPedidos(Pedidos pedidos) {
+	public void setPedidos(List<Pedidos> pedidos) {
 		this.pedidos = pedidos;
 	}
 
-	public Pqr getPqr() {
+	public List<Pqr> getPqr() {
 		return pqr;
 	}
 
-	public void setPqr(Pqr pqr) {
+	public void setPqr(List<Pqr> pqr) {
 		this.pqr = pqr;
 	}
 
-	public Direcciones getDirecciones() {
+	public List<Direcciones> getDirecciones() {
 		return direcciones;
 	}
 
-	public void setDirecciones(Direcciones direcciones) {
+	public void setDirecciones(List<Direcciones> direcciones) {
 		this.direcciones = direcciones;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-    
-    
-
-
-    
-
-
-    
+	
 	
 	
 }

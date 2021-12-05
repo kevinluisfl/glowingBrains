@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
-@Table(name="producto")
+@Table(name="productos")
 public class Productos implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -61,15 +62,15 @@ public class Productos implements Serializable {
 	
 	@JsonIgnoreProperties(value = {"productos", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "productos", cascade = CascadeType.ALL)
-    private Promociones promociones;
+    private List<Promociones> promociones;
 	
 	@JsonIgnoreProperties(value = {"productos", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "productoss", cascade = CascadeType.ALL)
-    private Detalle_pedidos detalle_pedidos;
+    private List<Detalle_pedidos> detalle_pedidos;
 	
 	@JsonIgnoreProperties(value = {"productos", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "productos", cascade = CascadeType.ALL)
-    private Comentarios_producto comentarios_producto;
+    private List<Comentarios_producto> comentarios_producto;
 
 	public Long getId_producto() {
 		return id_producto;
@@ -159,30 +160,30 @@ public class Productos implements Serializable {
 		this.subcategorias = subcategorias;
 	}
 
-	public Promociones getPromociones() {
+	public List<Promociones> getPromociones() {
 		return promociones;
 	}
 
-	public void setPromociones(Promociones promociones) {
+	public void setPromociones(List<Promociones> promociones) {
 		this.promociones = promociones;
 	}
 
-	public Detalle_pedidos getDetalle_pedidos() {
+	public List<Detalle_pedidos> getDetalle_pedidos() {
 		return detalle_pedidos;
 	}
 
-	public void setDetalle_pedidos(Detalle_pedidos detalle_pedidos) {
+	public void setDetalle_pedidos(List<Detalle_pedidos> detalle_pedidos) {
 		this.detalle_pedidos = detalle_pedidos;
 	}
 
-	public Comentarios_producto getComentarios_producto() {
+	public List<Comentarios_producto> getComentarios_producto() {
 		return comentarios_producto;
 	}
 
-	public void setComentarios_producto(Comentarios_producto comentarios_producto) {
+	public void setComentarios_producto(List<Comentarios_producto> comentarios_producto) {
 		this.comentarios_producto = comentarios_producto;
 	}
-	
+
 	
 	
 

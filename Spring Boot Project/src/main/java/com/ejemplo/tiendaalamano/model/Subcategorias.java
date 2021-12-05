@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,11 +34,30 @@ public class Subcategorias implements Serializable{
 	
 	@JsonIgnoreProperties(value={"subcategorias", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "subcategorias", cascade = CascadeType.ALL) 
-	private Productos productos;
+	private List<Productos> productos;
 	
 	@JsonIgnoreProperties(value={"subcategorias", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
-	private Categorias categorias;
+	private Categorias categoria;
+	
+	
+	public List<Productos> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(List<Productos> productos) {
+		this.productos = productos;
+	}
+
+	public Categorias getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categorias categoria) {
+		this.categoria = categoria;
+	}
+
+	
 
 	public Long getId_subcategoria() {
 		return id_subcategoria;
@@ -63,21 +83,6 @@ public class Subcategorias implements Serializable{
 		this.categoria_id = categoria_id;
 	}
 
-	public Productos getProductos() {
-		return productos;
-	}
-
-	public void setProductos(Productos productos) {
-		this.productos = productos;
-	}
-
-	public Categorias getCategorias() {
-		return categorias;
-	}
-
-	public void setCategorias(Categorias categorias) {
-		this.categorias = categorias;
-	}
 	
 	
 

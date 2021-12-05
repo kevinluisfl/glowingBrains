@@ -2,6 +2,8 @@ package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -73,7 +75,7 @@ public class Creditos implements Serializable {
 	
 	@JsonIgnoreProperties(value={"creditos", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "creditos", cascade = CascadeType.ALL) 
-	private Historial_credito historial_credito;
+	private List<Historial_credito> historial_credito;
 
 	public Long getId_credito() {
 		return id_credito;
@@ -187,13 +189,14 @@ public class Creditos implements Serializable {
 		this.usuario = usuario;
 	}
 
-	public Historial_credito getHistorial_credito() {
+	public List<Historial_credito> getHistorial_credito() {
 		return historial_credito;
 	}
 
-	public void setHistorial_credito(Historial_credito historial_credito) {
+	public void setHistorial_credito(List<Historial_credito> historial_credito) {
 		this.historial_credito = historial_credito;
 	}
+
 	
 	
 	

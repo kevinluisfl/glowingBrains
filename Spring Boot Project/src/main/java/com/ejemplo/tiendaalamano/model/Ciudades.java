@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,8 +19,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
 @Table(name="ciudades")
 public class Ciudades implements Serializable {
@@ -41,11 +40,11 @@ public class Ciudades implements Serializable {
 	
 	@JsonIgnoreProperties(value={"ciudades", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "cliente", cascade = CascadeType.ALL) 
-	private Direcciones direcciones;
+	private List<Direcciones> direcciones;
 	
 	@JsonIgnoreProperties(value={"ciudades", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ciudades", cascade = CascadeType.ALL) 
-	private Puntos_ventas puntos_venta;
+	private List<Puntos_ventas> puntos_venta;
 
 	public Long getId_ciudad() {
 		return id_ciudad;
@@ -79,23 +78,22 @@ public class Ciudades implements Serializable {
 		this.departamentos = departamentos;
 	}
 
-	public Direcciones getDirecciones() {
+	public List<Direcciones> getDirecciones() {
 		return direcciones;
 	}
 
-	public void setDirecciones(Direcciones direcciones) {
+	public void setDirecciones(List<Direcciones> direcciones) {
 		this.direcciones = direcciones;
 	}
 
-	public Puntos_ventas getPuntos_venta() {
+	public List<Puntos_ventas> getPuntos_venta() {
 		return puntos_venta;
 	}
 
-	public void setPuntos_venta(Puntos_ventas puntos_venta) {
+	public void setPuntos_venta(List<Puntos_ventas> puntos_venta) {
 		this.puntos_venta = puntos_venta;
 	}
-	
-	
+
 	
 
 }

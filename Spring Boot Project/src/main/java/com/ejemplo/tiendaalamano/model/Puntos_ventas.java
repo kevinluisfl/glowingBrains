@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -46,11 +47,11 @@ public class Puntos_ventas implements Serializable {
 	
 	@JsonIgnoreProperties(value = {"puntos_venta", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "puntos_venta", cascade = CascadeType.ALL)
-    private Redes_sociales redes_sociales;
+    private List<Redes_sociales> redes_sociales;
 	
 	@JsonIgnoreProperties(value = {"puntos_venta", "hibernateLazyInitializer", "handler"}, allowSetters = true)
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "puntos_venta", cascade = CascadeType.ALL)
-    private Pedidos pedidos;
+    private List<Pedidos> pedidos;
 
 	public int getId_puntos_ventao() {
 		return id_puntos_ventao;
@@ -108,26 +109,23 @@ public class Puntos_ventas implements Serializable {
 		this.ciudades = ciudades;
 	}
 
-	public Redes_sociales getRedes_sociales() {
+	public List<Redes_sociales> getRedes_sociales() {
 		return redes_sociales;
 	}
 
-	public void setRedes_sociales(Redes_sociales redes_sociales) {
+	public void setRedes_sociales(List<Redes_sociales> redes_sociales) {
 		this.redes_sociales = redes_sociales;
 	}
 
-	public Pedidos getPedidos() {
+	public List<Pedidos> getPedidos() {
 		return pedidos;
 	}
 
-	public void setPedidos(Pedidos pedidos) {
+	public void setPedidos(List<Pedidos> pedidos) {
 		this.pedidos = pedidos;
 	}
-	
-	
-	
-	
-	
+
+
 	
 	
 }
