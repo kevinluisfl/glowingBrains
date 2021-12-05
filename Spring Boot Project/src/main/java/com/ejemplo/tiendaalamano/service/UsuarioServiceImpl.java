@@ -13,35 +13,35 @@ import com.ejemplo.tiendaalamano.repository.UsuarioRepository;
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
-	private UsuarioRepository UsuarioRepository;
+	private UsuarioRepository usuarioRepository;
 
 	@Override
 	@Transactional(readOnly = true)
 	public List<Usuarios> findAll() {
-		return UsuarioRepository.findAll();
+		return usuarioRepository.findAll();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public Optional<Usuarios> findById(Long id) {
-		return UsuarioRepository.findById(id);
+		return usuarioRepository.findById(id);
 	}
 
 	@Override
 	@Transactional
 	public Usuarios save(Usuarios Usuario) {
-		return UsuarioRepository.save(Usuario);
+		return usuarioRepository.save(Usuario);
 	}
 
 	@Override
 	@Transactional
 	public void deleteById(Long id) {
-		UsuarioRepository.deleteById(id);
+		usuarioRepository.deleteById(id);
 	}
 
 	@Override
 	public List<Usuarios> login(String username, String password) {
-		List<Usuarios> Usuarios = UsuarioRepository.login(username, password);
+		List<Usuarios> Usuarios = usuarioRepository.login(username, password);
 		return Usuarios;
 	}
 

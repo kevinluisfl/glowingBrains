@@ -10,6 +10,6 @@ import com.ejemplo.tiendaalamano.model.Usuarios;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuarios, Long> {
-	@Query("SELECT p FROM Usuario p WHERE p.username = :username and p.password = :password")
+	@Query("SELECT p FROM usuarios p WHERE p.usuario = :username and p.clave = :password")
 	public List<Usuarios> login(String username, String password); 
 }
