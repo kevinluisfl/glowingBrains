@@ -1,7 +1,8 @@
 package com.ejemplo.tiendaalamano.controller;
 
 import com.ejemplo.tiendaalamano.model.Usuarios;
-import com.ejemplo.tiendaalamano.service.UsuarioService;
+
+import com.ejemplo.tiendaalamano.service.UsuariosServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,41 +23,41 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/usuarios")
 public class UsuarioController {
     @Autowired
-    private UsuarioService usuarioService;
+    private UsuariosServiceImpl usuServicio;
 
     @RequestMapping(value = "/", method = RequestMethod.POST, consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public void createUsuario(@RequestBody @Validated Usuarios usuario) {
-    	usuarioService.save(usuario);
+    	usuServicio.save(usuario);
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public List<Usuarios> getAllUsuarios() {
-        return usuarioService.findAll();
+        return usuServicio.findAll();
     }
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
 	public ResponseEntity<?> update(@RequestBody Usuarios usuarioDetalle, Long id){
-		Optional<Usuarios> usuario = usuarioService.findById(id);
+		Optional<Usuarios> usuario = usuServicio.findById(id);
 		if(!usuario.isPresent()) {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(usuarioDetalle, usuario.get());
 		usuario.get().setId_usuario(id);
-		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.save(usuario.get()));
+		return ResponseEntity.status(HttpStatus.CREATED).body(usuServicio.save(usuario.get()));
 	}
 	
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
     public void deleteUsuarioById(@RequestParam Long id) {
-    	usuarioService.deleteById(id);
+    	usuServicio.deleteById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     public Optional<Usuarios> getUsuarioById(Long id) {
-        return usuarioService.findById(id);
+        return usuServicio.findById(id);
     }
 }

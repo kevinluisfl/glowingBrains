@@ -47,10 +47,10 @@ public class Usuarios implements Serializable{
 	private String tipo_documento;
 	
 	@Column(length = 15, nullable=false)
-	private String documento;
+	private String estado_usuario;
 	
-	@Column(length = 20, nullable=false)
-	private String ciudad_usuario;	
+	@Column(length = 15, nullable=false)
+	private String documento;
 	
 	@Column(length = 30, nullable=false)
 	private String email_usuario;
@@ -74,6 +74,8 @@ public class Usuarios implements Serializable{
  	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuarios", cascade = CascadeType.ALL)
  	 private List<Direcciones> direcciones;
 
+   
+    
 	public Long getId_usuario() {
 		return id_usuario;
 	}
@@ -138,13 +140,6 @@ public class Usuarios implements Serializable{
 		this.documento = documento;
 	}
 
-	public String getCiudad_usuario() {
-		return ciudad_usuario;
-	}
-
-	public void setCiudad_usuario(String ciudad_usuario) {
-		this.ciudad_usuario = ciudad_usuario;
-	}
 
 	public String getEmail_usuario() {
 		return email_usuario;
@@ -192,6 +187,14 @@ public class Usuarios implements Serializable{
 
 	public void setDirecciones(List<Direcciones> direcciones) {
 		this.direcciones = direcciones;
+	}
+
+	public String getEstado_usuario() {
+		return estado_usuario;
+	}
+
+	public void setEstado_usuario(String estado_usuario) {
+		this.estado_usuario = estado_usuario;
 	}
 
 	

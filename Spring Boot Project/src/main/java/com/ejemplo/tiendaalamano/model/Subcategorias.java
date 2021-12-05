@@ -27,7 +27,7 @@ public class Subcategorias implements Serializable{
 	private Long id_subcategoria;
 	
 	@Column(length = 15, nullable=false)
-	private String nombre_subategoria;
+	private String nombre_subcategoria;
 	
 	@Column(length = 15, nullable=false)
 	private int categoria_id;
@@ -66,12 +66,14 @@ public class Subcategorias implements Serializable{
 		this.id_subcategoria = id_subcategoria;
 	}
 
-	public String getNombre_subategoria() {
-		return nombre_subategoria;
+
+
+	public String getNombre_subcategoria() {
+		return nombre_subcategoria;
 	}
 
-	public void setNombre_subategoria(String nombre_subategoria) {
-		this.nombre_subategoria = nombre_subategoria;
+	public void setNombre_subcategoria(String nombre_subcategoria) {
+		this.nombre_subcategoria = nombre_subcategoria;
 	}
 
 	public int getCategoria_id() {
