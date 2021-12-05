@@ -44,7 +44,7 @@ public class HistorialCreditoController {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(historialcreditoDetalle, historialcredito.get());
-		historialcredito.get().setId_historio_credito(id);
+		historialcredito.get().setId_historial_credito(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(historialcreditoService.save(historialcredito.get()));
 	}
 	

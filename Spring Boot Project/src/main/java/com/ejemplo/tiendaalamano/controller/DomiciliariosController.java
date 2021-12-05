@@ -20,7 +20,7 @@ import com.ejemplo.tiendaalamano.service.DomiciliariosService;
 
 @RestController
 @CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
-@RequestMapping("/domiciliarios")
+@RequestMapping("/api/domiciliarios")
 public class DomiciliariosController {
 	
 	@Autowired

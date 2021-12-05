@@ -36,7 +36,7 @@ public class Comentarios_producto implements Serializable {
 	@Column(length = 150, nullable=false)
 	private String comentario_producto;
 	
-	@JsonIgnoreProperties(value={"Comentarios_producto", "hibernateLazyInitializer", "handler"}, allowSetters=true)
+	@JsonIgnoreProperties(value={"comentarios_producto", "hibernateLazyInitializer", "handler"}, allowSetters=true)
 	@ManyToOne(fetch = FetchType.LAZY) 
 	private Usuarios usuarios;
 	

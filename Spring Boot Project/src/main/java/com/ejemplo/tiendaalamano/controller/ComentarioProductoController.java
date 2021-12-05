@@ -44,7 +44,7 @@ public class ComentarioProductoController {
 			return ResponseEntity.notFound().build();
 		} 
 		BeanUtils.copyProperties(comentarioproductoDetalle, comentarioproducto.get());
-		comentarioproducto.get().setId_comentario(id);
+		comentarioproducto.get().setId_comentario_producto(id);
 		return ResponseEntity.status(HttpStatus.CREATED).body(comentarioproductoService.save(comentarioproducto.get()));
 	}
 	

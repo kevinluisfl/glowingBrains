@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,7 +21,7 @@ import com.ejemplo.tiendaalamano.service.CiudadesService;
 
 @RestController
 @CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
-@RequestMapping("/ciudades")
+@RequestMapping("/api/ciudades")
 public class CiudadesController {
 	
 	@Autowired
@@ -29,6 +30,11 @@ public class CiudadesController {
 	@GetMapping()
 	public List<Ciudades> obtenerPedidos(){
 		return ciudadesService.obtenerPedidos();
+	}
+	
+	@GetMapping(path="/{id}")
+	public Optional<Ciudades> obtenerPedidosId(@PathVariable("id") Long id){
+		return ciudadesService.obtenerPedidosId(id);
 	}
 	
 	@PostMapping

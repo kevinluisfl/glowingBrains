@@ -30,7 +30,7 @@ public class Pedidos implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_pedido;
+	private Long id_pedido;
 	
 	@Column(length = 15, nullable=false)
 	private int usuario_id;
@@ -118,11 +118,11 @@ public class Pedidos implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pedidos", cascade = CascadeType.ALL)
     private List<Pqr> pqr;
 
-	public int getId_pedido() {
+	public Long getId_pedido() {
 		return id_pedido;
 	}
 
-	public void setId_pedido(int id_pedido) {
+	public void setId_pedido(Long id_pedido) {
 		this.id_pedido = id_pedido;
 	}
 

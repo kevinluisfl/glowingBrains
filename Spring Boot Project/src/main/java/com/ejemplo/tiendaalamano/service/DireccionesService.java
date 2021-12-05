@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,10 @@ public class DireccionesService {
 
 	public List<Direcciones> obtenerPedidos() {
 		return direccionesRepository.findAll();
+	}
+	
+	public Optional<Direcciones> obtenerPedidosId(Long id) {
+		return direccionesRepository.findById(id);
 	}
 	
 	public Direcciones guardarPedido(Direcciones direccion) {

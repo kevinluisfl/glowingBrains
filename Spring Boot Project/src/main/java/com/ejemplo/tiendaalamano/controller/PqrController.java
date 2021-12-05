@@ -1,6 +1,7 @@
 package com.ejemplo.tiendaalamano.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,7 +20,7 @@ import com.ejemplo.tiendaalamano.service.PqrService;
 
 @RestController
 @CrossOrigin(origins="*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.DELETE})
-@RequestMapping("/pqr")
+@RequestMapping("/api/pqr")
 public class PqrController {
 	
 	@Autowired
@@ -28,6 +29,11 @@ public class PqrController {
 	@GetMapping()
 	public List<Pqr> obtenerPedidos(){
 		return pqrService.obtenerPedidos();
+	}
+	
+	@GetMapping(path="/{id}")
+	public Optional<Pqr> obtenerPedidosId(@PathVariable("id") Long id){
+		return pqrService.obtenerPedidosId(id);
 	}
 	
 	@PostMapping
