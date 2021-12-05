@@ -12,7 +12,7 @@ import com.ejemplo.tiendaalamano.model.Usuarios;
 import com.ejemplo.tiendaalamano.repository.UsuariosRepository;
 
 @Service
-public class UsuariosServiceImpl  {
+public class UsuariosServiceImpl implements UsuariosService {
 	@Autowired
 	private UsuariosRepository usuarioRepository;
 

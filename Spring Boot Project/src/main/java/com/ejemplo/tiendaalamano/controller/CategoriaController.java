@@ -36,9 +36,9 @@ public class CategoriaController {
         return categoriaService.findAll();
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     @ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> update(@RequestBody Categorias categoriaDetalle, Long id){
+	public ResponseEntity<?> update(@RequestBody Categorias categoriaDetalle, @RequestParam Long id){
 		Optional<Categorias> categoria = categoriaService.findById(id);
 		if(!categoria.isPresent()) {
 			return ResponseEntity.notFound().build();
@@ -56,7 +56,7 @@ public class CategoriaController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public Optional<Categorias> getCategoriaById(Long id) {
+    public Optional<Categorias> getCategoriaById(@RequestParam Long id) {
         return categoriaService.findById(id);
     }
 }
